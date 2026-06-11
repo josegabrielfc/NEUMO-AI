@@ -41,7 +41,7 @@ lotu/
    python3 --version
    ```
 
-3. Ejecute los siguientes comandos para configurar y desplegar el servidor:
+3. Ejecute los siguientes comandos para configurar y desplegar el servidor en macOS/Linux:
    ```bash
    # Crear el entorno virtual
    python3 -m venv .venv
@@ -58,6 +58,27 @@ lotu/
    # Iniciar el servidor de desarrollo
    python app.py
    ```
+
+4. Para Windows, use los siguientes comandos. En Windows puede ser `py`, `python3` o `python`, según la instalación disponible:
+   ```powershell
+   # Crear el entorno virtual
+   py -m venv .venv
+
+   # Actualizar pip en el entorno virtual
+   .venv\Scripts\python.exe -m pip install --upgrade pip
+
+   # Instalar dependencias
+   .venv\Scripts\pip.exe install -r requirements.txt
+
+   # Activar el entorno virtual (PowerShell)
+   .\.venv\Scripts\Activate.ps1
+   # Alternativa del entorno virtual para Command Prompt
+   .venv\Scripts\activate.bat
+
+   # Iniciar el servidor de desarrollo
+   python app.py
+   ```
+
    *El servidor se ejecutará en: `http://localhost:5001` y creará automáticamente la base de datos SQLite `neumo_ai.db` si no existe.*
 
 
