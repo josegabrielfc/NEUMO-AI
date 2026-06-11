@@ -1,0 +1,32 @@
+# OS Metadata
+.DS_Store
+Thumbs.db
+
+# Python virtual environment
+.venv/
+venv/
+env/
+ENV/
+
+# Python compiled cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# SQLite Database and temporary files
+neumo_ai.db
+neumo_ai.db-journal
+neumo_ai.db-wal
+neumo_ai.db-shm
+
+# Temp uploads (Keep the directory structure but ignore contents)
+uploads/*
+!uploads/.gitkeep
+
+# IDE / Editors
+.vscode/
+.idea/
+*.suo
+*.swp
