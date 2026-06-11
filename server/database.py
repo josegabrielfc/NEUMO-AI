@@ -34,7 +34,7 @@ def init_db():
     finally:
         conn.close()
 
-def save_diagnosis(nombres, apellidos, identificacion, edad, sexo, sintomas, descripcion, resultado, confianza, imagen_nombre):
+def save_diagnosis(nombres, apellidos, identificacion, edad, sexo, sintomas, descripcion, resultado, imagen_nombre):
     """Save a new diagnosis to the database."""
     conn = get_db_connection()
     cursor = conn.cursor()
@@ -50,10 +50,10 @@ def save_diagnosis(nombres, apellidos, identificacion, edad, sexo, sintomas, des
     try:
         cursor.execute(
             """
-            INSERT INTO diagnoses (nombres, apellidos, identificacion, edad, sexo, sintomas, descripcion, resultado, confianza, imagen_nombre)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            INSERT INTO diagnoses (nombres, apellidos, identificacion, edad, sexo, sintomas, descripcion, resultado, imagen_nombre)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
-            (nombres, apellidos, identificacion, edad, sexo, sintomas_str, descripcion, resultado, confianza, imagen_nombre)
+            (nombres, apellidos, identificacion, edad, sexo, sintomas_str, descripcion, resultado, imagen_nombre)
         )
         conn.commit()
         last_id = cursor.lastrowid

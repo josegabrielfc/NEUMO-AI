@@ -72,17 +72,15 @@ def predict_pneumonia(image_path):
             print(f"Model raw prediction probability: {prediction_prob:.6f}")
             
             # Interpret output: prediction_prob represents the probability of being NORMAL.
-            # Decision boundary/threshold is 0.005:
-            # - If prediction_prob < 0.005 -> NEUMONÍA (Low probability of being NORMAL)
-            # - If prediction_prob >= 0.005 -> NORMAL (At least 0.5% probability of being NORMAL)
-            if prediction_prob < 0.005:
+            # Decision boundary/threshold is 0.01:
+            # - If prediction_prob < 0.01 -> NEUMONÍA (Low probability of being NORMAL)
+            # - If prediction_prob >= 0.01 -> NORMAL (At least 1% probability of being NORMAL)
+            if prediction_prob < 0.01:
                 resultado = "NEUMONÍA"
-                confianza = (1.0 - prediction_prob) * 100.0
             else:
                 resultado = "NORMAL"
-                confianza = prediction_prob * 100.0
                 
-            return resultado, round(confianza, 2)
+            return resultado
             
     except Exception as e:
         print(f"Error during image prediction: {e}")

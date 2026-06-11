@@ -3,7 +3,6 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Printer, ShieldAlert, Heart, Calendar, User, FileText, CheckCircle } from 'lucide-react';
 import type { Diagnosis } from '../types';
 import { getDiagnosisById } from '../services/api';
-import ConfidenceBar from '../components/ConfidenceBar';
 
 export default function DiagnosisReport() {
   const { id } = useParams<{ id: string }>();
@@ -181,10 +180,6 @@ export default function DiagnosisReport() {
                   {diagnosis.resultado}
                 </span>
               </div>
-              
-              <div style={{ marginTop: '16px' }}>
-                <ConfidenceBar resultado={diagnosis.resultado} confianza={diagnosis.confianza} />
-              </div>
             </div>
           </div>
         </div>
@@ -208,7 +203,7 @@ export default function DiagnosisReport() {
                   </h4>
                 </div>
                 <p style={styles.alertDesc}>
-                  El análisis computarizado del tórax mediante el modelo de red neuronal convolucional ha detectado opacidades pulmonares anormales altamente consistentes con un cuadro de **NEUMONÍA** (nivel de certeza del {diagnosis.confianza.toFixed(1)}%).
+                  El análisis computarizado del tórax mediante el modelo de red neuronal convolucional ha detectado opacidades pulmonares anormales altamente consistentes con un cuadro de **NEUMONÍA**.
                 </p>
                 <div style={styles.clinicalNotes}>
                   <p><strong>Recomendaciones para el Personal Médico:</strong></p>
@@ -229,7 +224,7 @@ export default function DiagnosisReport() {
                   </h4>
                 </div>
                 <p style={styles.alertDesc}>
-                  El modelo predictivo no ha detectado densidades consolidadas significativas o infiltrados alveolares que indiquen la presencia de neumonía bacteriana o viral (certeza de normalidad del {diagnosis.confianza.toFixed(1)}%).
+                  El modelo predictivo no ha detectado densidades consolidadas significativas o infiltrados alveolares que indiquen la presencia de neumonía bacteriana o viral.
                 </p>
                 <div style={styles.clinicalNotes}>
                   <p><strong>Recomendaciones para el Personal Médico:</strong></p>

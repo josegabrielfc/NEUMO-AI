@@ -18,7 +18,6 @@ export interface Diagnosis {
   sintomas: string[];
   descripcion: string;
   resultado: 'NORMAL' | 'NEUMONÍA';
-  confianza: number;
   imagen_nombre: string;
   created_at: string;
 }
@@ -27,7 +26,6 @@ export interface PredictionResult {
   success: boolean;
   id: number;
   resultado: 'NORMAL' | 'NEUMONÍA';
-  confianza: number;
   nombres: string;
   apellidos: string;
   identificacion: string;

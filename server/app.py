@@ -108,7 +108,7 @@ def predict():
             return jsonify({"error": "El archivo cargado no es una imagen válida"}), 400
             
         # 3. Perform prediction (RF-03)
-        resultado, confianza = predict_pneumonia(temp_filepath)
+        resultado = predict_pneumonia(temp_filepath)
         
         # 4. Save to Database
         db_id = save_diagnosis(
@@ -120,7 +120,6 @@ def predict():
             sintomas=sintomas,
             descripcion=descripcion,
             resultado=resultado,
-            confianza=confianza,
             imagen_nombre=file.filename
         )
         
@@ -133,7 +132,6 @@ def predict():
             "success": True,
             "id": db_id,
             "resultado": resultado,
-            "confianza": confianza,
             "nombres": nombres,
             "apellidos": apellidos,
             "identificacion": identificacion,

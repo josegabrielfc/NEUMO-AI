@@ -136,7 +136,6 @@ export default function History() {
                 <th style={styles.th}>Edad/Sexo</th>
                 <th style={styles.th}>Fecha de Análisis</th>
                 <th style={styles.th}>Resultado</th>
-                <th style={styles.th}>Confianza</th>
                 <th style={styles.thAction}>Acciones</th>
               </tr>
             </thead>
@@ -160,11 +159,6 @@ export default function History() {
                   <td style={styles.td}>
                     <span className={`badge ${diag.resultado === 'NEUMONÍA' ? 'badge-pneumonia' : 'badge-normal'}`}>
                       {diag.resultado}
-                    </span>
-                  </td>
-                  <td style={styles.td}>
-                    <span style={{ fontWeight: 600, color: diag.resultado === 'NEUMONÍA' ? 'var(--danger)' : 'var(--success)' }}>
-                      {diag.confianza.toFixed(1)}%
                     </span>
                   </td>
                   <td style={styles.tdAction}>

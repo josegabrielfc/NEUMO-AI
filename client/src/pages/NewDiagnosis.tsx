@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { UploadCloud, FileText, Activity, RefreshCw, AlertTriangle, CheckCircle, ArrowRight } from 'lucide-react';
 import type { Patient, PredictionResult } from '../types';
 import { predictPneumonia } from '../services/api';
-import ConfidenceBar from '../components/ConfidenceBar';
 
 const initialPatient: Patient = {
   nombres: '',
@@ -377,11 +376,6 @@ export default function NewDiagnosis() {
 
               <div style={styles.divider}></div>
 
-              {/* Confidence metric */}
-              <ConfidenceBar resultado={result.resultado} confianza={result.confianza} />
-
-              <div style={styles.divider}></div>
-
               {/* Recommendations and Warnings */}
               <div style={styles.recommendationCard}>
                 {result.resultado === 'NEUMONÍA' ? (
@@ -391,7 +385,7 @@ export default function NewDiagnosis() {
                       <strong style={{ color: 'var(--danger)' }}>¡Alerta Clínica!</strong>
                     </div>
                     <p style={styles.recText}>
-                      Se han identificado hallazgos compatibles con consolidación alveolar sugestiva de **Neumonía** con un nivel de confianza del {result.confianza}%. Se recomienda remitir de inmediato al paciente para valoración por el médico especialista, toma de laboratorios clínicos y correlación diagnóstica urgente.
+                      Se han identificado hallazgos compatibles con consolidación alveolar sugestiva de **Neumonía**. Se recomienda remitir de inmediato al paciente para valoración por el médico especialista, toma de laboratorios clínicos y correlación diagnóstica urgente.
                     </p>
                   </div>
                 ) : (

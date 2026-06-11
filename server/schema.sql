@@ -8,7 +8,6 @@ CREATE TABLE IF NOT EXISTS diagnoses (
     sintomas TEXT,              -- JSON list of symptoms, e.g., '["fiebre", "tos"]'
     descripcion TEXT,
     resultado TEXT NOT NULL CHECK(resultado IN ('NORMAL', 'NEUMONÍA')),
-    confianza REAL NOT NULL,    -- Percentage from 0.0 to 100.0
     imagen_nombre TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
