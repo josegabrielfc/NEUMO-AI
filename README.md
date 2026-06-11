@@ -36,31 +36,30 @@ lotu/
    cd server
    ```
 
-2. Cree un entorno virtual de Python:
+2. Verifique la versión de Python (opcional, para confirmar que está instalado):
    ```bash
+   python3 --version
+   ```
+
+3. Ejecute los siguientes comandos para configurar y desplegar el servidor:
+   ```bash
+   # Crear el entorno virtual
    python3 -m venv .venv
-   ```
 
-3. Active el entorno virtual:
-   - **macOS / Linux:**
-     ```bash
-     source .venv/bin/activate
-     ```
-   - **Windows:**
-     ```cmd
-     .venv\Scripts\activate
-     ```
+   # Actualizar pip en el entorno virtual
+   .venv/bin/pip install --upgrade pip
 
-4. Instale las dependencias necesarias:
-   ```bash
-   pip install -r requirements.txt
-   ```
+   # Instalar dependencias
+   .venv/bin/pip install -r requirements.txt
 
-5. Inicie el servidor de desarrollo:
-   ```bash
+   # Activar el entorno virtual
+   source .venv/bin/activate
+
+   # Iniciar el servidor de desarrollo
    python app.py
    ```
    *El servidor se ejecutará en: `http://localhost:5001` y creará automáticamente la base de datos SQLite `neumo_ai.db` si no existe.*
+
 
 ---
 
